@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--  默认无参构造方式
+    <bean id="user" class="com.pn.entity.User">
+        <property name="name" value="ioc"/>
+    </bean>
+-->
+<!--有参构造方式-->
+    <!--第一种方式：下标赋值    -->
+    <bean id="user" class="com.pn.entity.User">
+        <constructor-arg index="0" value="下标 index Java"/>
+    </bean>
+    <!--第二种方式：通过类型的创建，不建议使用    -->
+<!--    <bean id="user" class="com.pn.entity.User">-->
+<!--        <constructor-arg type="java.lang.String" value="String 类型"/>-->
+<!--    </bean>-->
+<!--    &lt;!&ndash;第三种方式：直接通过参数名来设置    &ndash;&gt;-->
+<!--    <bean id="user" class="com.pn.entity.User">-->
+<!--        <constructor-arg name="name" value="参数名"/>-->
+<!--    </bean>-->
+
+    <!--别名，如果添加了别名，我们也可以使用别名获取到这个对象-->
+    <alias name="user" alias="userNew"/>
+
+    <!--
+    id：bean的唯一标识符，也就是相当于我们学的对象名
+    class：bean对象所对应的全限定名：包名+类名
+    name：也是别名，而且name可以同时取多个别名
+        -->
+    <bean id="userT" class="com.pn.entity.UserT" name="user2 u2,u3;u4">
+        <property name="name" value="name 别名配置可一次多个别名"/>
+    </bean>
+<!--    import可以将多个配置文件，导入合并为一个。-->
+
+
+
+</beans>

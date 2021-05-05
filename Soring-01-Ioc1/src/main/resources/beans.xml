@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--用Spring容器来进行改造 new对象-->
+    <bean id="userDaoImpl" class="com.pn.dao.UserDaoImpl"/>
+    <bean id="userDaoMysqlImpl" class="com.pn.dao.UserDaoMysql"/>
+    <bean id="userServiceImpl" class="com.pn.Service.UserServiceImpl">
+<!--  ref:引用Spring容器中创建好的对象 value：具体的值基本数据类型 不同对象ref进行修改即可-->
+<!--        <property name="userDao" ref="userDaoMysqlImpl"/>-->
+        <property name="userDao" ref="userDaoImpl"/>
+    </bean>
+</beans>
